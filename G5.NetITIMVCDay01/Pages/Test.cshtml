@@ -1,0 +1,29 @@
+﻿@page
+
+@* Page Directive => page run in the browser *@
+
+
+@model G5.NetITIMVCDay01.Pages.TestModel
+
+
+
+
+<h1>Welcome from test page</h1>
+<p>P Tag</p>
+<span>Test page</span>
+
+int x = 5; => text 
+
+@{
+    int y = 5;
+    y++;
+}
+
+<h1>@y</h1>
+
+@for(int i = 0; i< 5; i++)
+{
+    int z = 10;
+    <h1>@i</h1>
+    <h1>@z</h1>
+}

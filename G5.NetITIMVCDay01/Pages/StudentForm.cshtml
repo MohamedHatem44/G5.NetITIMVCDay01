@@ -1,0 +1,53 @@
+﻿@page
+@* Page Directive *@
+
+@model G5.NetITIMVCDay01.Pages.StudentFormModel
+<style>
+    #mess {
+        color:blue
+    }
+</style>
+
+<h2>Student Registration</h2>
+
+@* Form that take data from Student *@
+<form>
+    <label for="idCode">Code</label>
+    <input type="number" name="idCode" />       @* name is used as key in the query string *@
+
+    <br />
+    <hr />
+    <br />
+
+    <label for="userName">User Name</label>
+    <input type="text" name="userName" />
+
+    <br />
+    <hr />
+    <br />
+
+    <label for="showMess">Show Message</label>
+    <input type="radio" name="showMess" />
+
+    <br />
+    <hr />
+    <br />
+
+    <input type="submit" class="btn btn-outline-primary" />
+</form>
+
+
+@* This is C# Code to catch data from query string and print it into view *@
+@{
+    string? code = Request.Query["idCode"];
+    string? username = Request.Query["userName"];
+    string? showmess = Request.Query["showMess"];
+
+    if (!string.IsNullOrEmpty(code) && !string.IsNullOrEmpty(username) && showmess != null)
+    {
+        // <h1>Hello: @username your Code is: @code</h1>
+        // <h1 style="color:red">Hello: @username your Code is: @code</h1>
+        // <h1 id="mess">Hello: @username your Code is: @code</h1>
+        <h1 class="text-danger">Hello: @username your Code is: @code</h1>
+    }
+}
